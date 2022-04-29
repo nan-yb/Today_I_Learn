@@ -31,8 +31,6 @@ function BoardRegisterForm( { onRegister} : Props ) {
     [title , content , writer , onRegister]
   );
 
-
-
   return (
     <div className={styles.centered}>
       <h2>게시판 등록</h2>
