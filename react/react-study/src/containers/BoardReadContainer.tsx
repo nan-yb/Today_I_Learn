@@ -2,14 +2,14 @@ import React , {useCallback , useEffect} from "react";
 import BoardRead from "../components/BoardRead";
 import { useDispatch , useSelector } from "react-redux";
 import { 
-  fetchStart , 
   fetchSuccess , 
   fetchFailure 
 } from "../modules/board"
 import { fetchBoardApi  , removeBoardApi } from "../lib/api";
 
 import { RouteComponentProps , withRouter } from "react-router-dom"
-import { BoardState } from "../modules/board";
+import { RootState } from "../modules";
+import {startLoading , endLoading} from "../modules/loading";
 
 interface MatchParams { 
   boardNo : string;
@@ -20,22 +20,22 @@ const BoardReadContainer = ({ match  , history} : RouteComponentProps<MatchParam
 
   const dispatch = useDispatch();
 
-  const { board , isLoading} = useSelector (( state : BoardState) => ({
-    board : state.board , 
-    isLoading : state.loading.FETCH , 
+  const { board , isLoading} = useSelector (( {board , loading} : RootState) => ({
+    board : board.board , 
+    isLoading : loading.FETCH , 
   }));
 
   const readBoard = useCallback(async(boardNo) => {
-    dispatch(fetchStart());
     try {
       const response = await fetchBoardApi(boardNo);
       
-
+      dispatch (startLoading("FETCH"));
       dispatch(fetchSuccess(response.data));
-
-    } catch (error) {
-      dispatch(fetchFailure(error));
-      throw error;      
+      dispatch (endLoading("FETCH"));
+    } catch (e) {
+      dispatch(fetchFailure(e));
+      dispatch (endLoading("FETCH"));
+      throw e;      
     }
   } , [dispatch]);
 
