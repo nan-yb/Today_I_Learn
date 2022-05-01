@@ -1,20 +1,22 @@
-
 import { combineReducers } from "redux";
-
-import board from "./board";
+import { all } from "redux-saga/effects";
+import item , {itemSaga} from "./item";
 import loading from "./loading";
+import { ItemState } from "../modules/item";
+import { LoadingState} from "../modules/loading";
 
-import { BoardState} from "../modules/board" ;
-import { LoadingState } from "../modules/loading";
 
-export interface RootState {
-  board : BoardState ; 
-  loading : LoadingState ; 
+export interface RootState { 
+  item : ItemState; 
+  loading : LoadingState;
 }
 
 const rootReducer = combineReducers({
-  board , 
-  loading ,
+  item , loading
 })
+
+export function* rootSaga(){
+  yield all([itemSaga()]);
+}
 
 export default rootReducer;

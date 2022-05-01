@@ -1,25 +1,24 @@
 import React from 'react';
-import { Route  } from "react-router-dom";
-import BoardListContainer from "./containers/BoardListContainer";
-import BoardRegisterContainer from "./containers/BoardRegisterContainer";
-import BoardModifyContainer from "./containers/BoardModifyContainer";
-import BoardReadContainer from "./containers/BoardReadContainer";
+import { Route } from "react-router-dom";
+import ItemListContainer from "./containers/ItemListContainer";
+import ItemRegisterContainer from "./containers/ItemRegisterContainer";
+import ItemModifyContainer from "./containers/ItemModifyContainer";
+import ItemReadContainer from "./containers/ItemReadContainer";
 
-export interface Board { 
-  readonly boardNo : string ;
-  readonly title : string ; 
-  readonly writer : string ;
-  readonly content : string;
-  readonly regDate : string;
+export interface Item {
+  readonly itemId : string ; 
+  readonly itemName : string ; 
+  readonly price : number ; 
+  readonly description : string;
 }
 
 function App() {
   return (
     <>
-      <Route component={BoardListContainer} path="/" exact />
-      <Route component={BoardRegisterContainer} path="/create" />
-      <Route component={BoardModifyContainer} path="/edit/:boardNo" />
-      <Route component={BoardReadContainer} path="/read/:boardNo" />
+      <Route component={ItemListContainer} path="/" exact />
+      <Route component={ItemRegisterContainer} path="/create" />
+      <Route component={ItemModifyContainer} path="/edit/:itemId" />
+      <Route component={ItemReadContainer} path="/read/:itemId" />
     </>
   );
 }

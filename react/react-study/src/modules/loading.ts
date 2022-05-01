@@ -12,30 +12,27 @@ export const startLoading = createAction(
 export const endLoading = createAction(
   END_LOADING , 
   (actionType : string) => actionType
-);
+)
 
 export interface LoadingState { 
-  FETCH : boolean , 
-  FETCH_LIST : boolean 
+  [key: string] : boolean ;
 }
 
-const initialState: LoadingState = {
-  FETCH : false , 
-  FETCH_LIST : false
-};
+const initialState: LoadingState = {};
 
 const loading = createReducer(
-  initialState , 
+  initialState ,
   {
-    [START_LOADING] : (state , action) => ({
+    [START_LOADING ] : (state , action) => ({
       ...state , 
-      [action.paylaod] : true , 
+      [action.payload] : true , 
     }) ,
-    [END_LOADING] : (state , action ) => ({
-      ...state ,
+    [END_LOADING ] : (state , action) => ({
+      ...state , 
       [action.payload] : false , 
-    })
+    }) ,
+    
   }
 )
 
-export default loading ; 
+export default loading;
