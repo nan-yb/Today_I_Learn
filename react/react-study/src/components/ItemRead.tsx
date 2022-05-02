@@ -7,15 +7,19 @@ interface Props {
   readonly itemId : string ; 
   readonly item?: Item;
   readonly isLoading: boolean;
+  readonly onRemove : ()=> void;
 }
 
-function ItemRead({itemId , item , isLoading} : Props) {
+function ItemRead({itemId , item , isLoading , onRemove} : Props) {
 
   const pictureUrl = () => {
     return (
       "/items/display?itemId=" + itemId + "&timestamp=" + new Date().getTime()
     )
   }
+
+  console.log(pictureUrl());
+  
   return (
     <div className={styles.centered}>
       <h2>상품 상세보기</h2>
@@ -59,7 +63,7 @@ function ItemRead({itemId , item , isLoading} : Props) {
           </table>
           <div className={styles.align_centered}>
             <Link to={`/edit/${itemId}`}>편집</Link>
-            <button>삭제</button>
+            <button onClick={onRemove}>삭제</button>
             <Link to="/">목록</Link>
           </div>
           </>
