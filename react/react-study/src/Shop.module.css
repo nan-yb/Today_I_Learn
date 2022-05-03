@@ -1,0 +1,49 @@
+.centered {
+  display: flex;
+  background-color: #FFFFFF;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.shop_table {
+  border-width: 1px;
+  border-color: #8f8f8f;
+  border-style: solid;
+}
+
+.align_center {
+  text-align: center;
+}
+
+.align_right {
+  text-align: right;
+}
+
+.align_left {
+  text-align: left;
+}
+
+.w_60 {
+  width: 60px;
+}
+
+.w_80 {
+  width: 80px;
+}
+
+.w_100 {
+  width: 100px;
+}
+
+.w_160 {
+  width: 160px;
+}
+
+.w_180 {
+  width: 180px;
+}
+
+.w_300 {
+  width: 300px;
+}
