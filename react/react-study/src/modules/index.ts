@@ -1,21 +1,20 @@
 import { combineReducers } from "redux";
 import { all } from "redux-saga/effects";
-import { LoadingState} from "../modules/loading";
-import auth , { authSaga , AuthState } from "./auth";
+import auth, { authSaga } from "./auth";
+import { AuthState } from "../modules/auth";
 
-export interface RootState { 
-  loading : LoadingState;
-  auth : AuthState;
+export interface RootState {
+  auth: AuthState;
 }
 
 const rootReducer = combineReducers({
-  auth,
-})
+  auth
+});
 
-export function* rootSaga(){
-  yield all ([
+export function* rootSaga() {
+  yield all([
     authSaga()
-  ])
+  ]);
 }
 
 export default rootReducer;

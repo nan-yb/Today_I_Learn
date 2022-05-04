@@ -1,36 +1,35 @@
-import React, { useCallback, useState } from 'react';
-import styles from "../../Shop.module.css"
+import React, { useState, useCallback } from "react";
+import styles from "../../Shop.module.css";
 
 interface Props {
-  readonly onRegister : (userId : string , userName : string , userPw : string ) => void;
+  readonly onRegister: (userId: string, userName: string, password: string) => void;
 }
 
-function AdminSetupForm ({onRegister}: Props){
+function AdminSetupForm({ onRegister }: Props) {
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState("");
 
-  const [ userId , setUserId ] = useState("");
-  const [ password , setPassword] = useState("");
-  const [ userName , setUserName ] = useState("");
+  const handleChangeUserId = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserId(e.target.value);
+  }, []);
 
-  const handleChangeUserId = useCallback((e : React.ChangeEvent<HTMLInputElement>) => {
-    setUserId(e.target.value)
-  } , [])
+  const handleChangePassword = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  }, []);
 
+  const handleChangeUserName = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserName(e.target.value);
+  }, []);
 
-  const handleChangeUserName = useCallback((e : React.ChangeEvent<HTMLInputElement>) => {
-    setUserName(e.target.value)
-  } , [])
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-
-  const handleChangePassword = useCallback((e : React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value)
-  } , [])
-
-
-  const handleSubmit = useCallback(( e: React.FormEvent<HTMLFormElement> ) => {
-    e.preventDefault();
-
-    onRegister(userId , userName , password);
-  } , [userId , userName , password , onRegister]);
+      onRegister(userId, userName, password);
+    },
+    [userId, userName, password, onRegister]
+  );
 
   return (
     <div className={styles.centered}>
@@ -76,8 +75,8 @@ function AdminSetupForm ({onRegister}: Props){
           <button type="submit">등록</button>
         </div>
       </form>
-    </div> 
-  ) 
-};
+    </div>
+  );
+}
 
 export default AdminSetupForm;

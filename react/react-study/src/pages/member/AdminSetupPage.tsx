@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 import AdminSetupContainer from "../../containers/member/AdminSetupContainer";
 import MainLayout from "../../layout/MainLayout";
 
-
-function AdminSetupPage (){
-  return ( 
+function AdminSetupPage() {
+  return (
     <MainLayout>
       <AdminSetupContainer />
-    </MainLayout> 
-  ) 
-};
+    </MainLayout>
+  );
+}
 
 export default AdminSetupPage;
