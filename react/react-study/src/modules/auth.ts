@@ -4,7 +4,8 @@ import { takeLatest, call, put } from "redux-saga/effects";
 import * as api from "../lib/api";
 import client from "../lib/client";
 import { AxiosResponse } from "axios";
-import { LoginInput, MyInfo } from "../App"
+import { LoginInput, MyInfo } from "../App";
+import Cookies from "js-cookie";
 
 const SET_ACCESS_TOKEN = "auth/SET_ACCESS_TOKEN";
 
@@ -16,7 +17,7 @@ const CHECK_MY_INFO = "auth/CHECK_MY_INFO";
 export const setAccessToken = createAction(SET_ACCESS_TOKEN, (accessToken: string) => accessToken);
 export const login = createAction(LOGIN, ({ userId, password }: LoginInput) => ({ userId, password }));
 
-export const setMyInfo = createAction(SET_MY_INFO, (myInfo: MyInfo) => myInfo);
+export const setMyInfo = createAction(SET_MY_INFO, (myInfo: MyInfo | null) => myInfo);
 export const checkMyInfo = createAction(CHECK_MY_INFO);
 
 function* loginSaga(action: ReturnType<typeof login>) {
@@ -25,13 +26,14 @@ function* loginSaga(action: ReturnType<typeof login>) {
 
     const response: AxiosResponse = yield call(api.signIn, userId, password);
 
-    console.log(response)
     const { authorization } = response.headers;
     const accessToken = authorization.substring(7);
-
+    
     yield put(setAccessToken(accessToken));
 
     client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+
+    Cookies.set("accessToken", accessToken, { expires: 1 });
   } catch (e) {
     console.log(e);
   }
@@ -40,7 +42,7 @@ function* loginSaga(action: ReturnType<typeof login>) {
 function* checkMyInfoSaga() {
   try {
     const response: AxiosResponse = yield call(api.getMyInfo);
-
+    
     yield put(setMyInfo(response.data));
   } catch (e) {
     console.log(e);
