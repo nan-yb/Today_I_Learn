@@ -9,8 +9,6 @@ interface Props {
 }
 
 function MainHeader({ myInfo, isAuthorized }: Props) {
-  console.log('MainHeader myInfo ', myInfo)
-  console.log('MainHeader isAuthorized ', isAuthorized)
   return (
     <div className={styles.align_right}>
       {isAuthorized && myInfo && (
