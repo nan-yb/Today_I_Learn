@@ -27,13 +27,13 @@ function* loginSaga(action: ReturnType<typeof login>) {
     const response: AxiosResponse = yield call(api.signIn, userId, password);
 
     const { authorization } = response.headers;
-    const accessToken = authorization.substring(7);
-    
-    yield put(setAccessToken(accessToken));
+    // const accessToken = authorization.substring(7);
 
-    client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+    yield put(setAccessToken(authorization));
 
-    Cookies.set("accessToken", accessToken, { expires: 1 });
+    client.defaults.headers.common.Authorization = `Bearer ${authorization}`;
+
+    Cookies.set("accessToken", authorization, { expires: 1 });
   } catch (e) {
     console.log(e);
   }

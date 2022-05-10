@@ -1,13 +1,13 @@
-import React from 'react';
-import CodeGroupRegisterContainer from '../../containers/codegroup/CodeGroupRegisterContainer';
-import MainLayout from '../../layout/MainLayout';
+import React from "react";
+import CodeGroupRegisterContainer from "../../containers/codegroup/CodeGroupRegisterContainer";
+import MainLayout from "../../layout/MainLayout";
 
-function CodeGroupRegisterPage (){
+function CodeGroupRegisterPage() {
   return (
     <MainLayout>
       <CodeGroupRegisterContainer />
     </MainLayout>
-  ) 
-};
+  );
+}
 
 export default CodeGroupRegisterPage;

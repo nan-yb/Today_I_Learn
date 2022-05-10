@@ -1,17 +1,16 @@
-import React from 'react';
+import React from "react";
+import CodeGroupModifyContainer from "../../containers/codegroup/CodeGroupModifyContainer";
+import MainLayout from "../../layout/MainLayout";
 import { useParams } from 'react-router-dom';
-import CodeGroupModifyContainer from '../../containers/codegroup/CodeGroupModifyContainer';
-import MainLayout from '../../layout/MainLayout';
 
-function CodeGroupModifyPage (){
-
-  const { groupCode } : { groupCode : string} = useParams();
+function CodeGroupModifyPage() {
+  const { groupCode }: { groupCode: string } = useParams();
 
   return (
     <MainLayout>
-      <CodeGroupModifyContainer groupCode = {groupCode} />
+      <CodeGroupModifyContainer groupCode={groupCode} />
     </MainLayout>
-  )
-};
+  );
+}
 
 export default CodeGroupModifyPage;

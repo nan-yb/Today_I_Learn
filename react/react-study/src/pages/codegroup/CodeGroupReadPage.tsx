@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
+import CodeGroupReadContainer from "../../containers/codegroup/CodeGroupReadContainer";
+import MainLayout from "../../layout/MainLayout";
 import { useParams } from 'react-router-dom';
-import CodeGroupReadContainer from '../../containers/codegroup/CodeGroupReadContainer';
-import MainLayout from '../../layout/MainLayout';
 
-function CodeGroupReadPage (){
-  const { groupCode } : { groupCode : string} = useParams();
+function CodeGroupReadPage() {
+  const { groupCode }: { groupCode: string } = useParams();
 
-  return ( 
+  return (
     <MainLayout>
       <CodeGroupReadContainer groupCode={groupCode} />
     </MainLayout>
-  ) 
-};
+  );
+}
 
 export default CodeGroupReadPage;

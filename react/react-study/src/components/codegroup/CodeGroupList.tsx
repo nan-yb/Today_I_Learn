@@ -1,22 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../../Shop.module.css";
 import { CodeGroup } from "../../App";
 
-type Props = {
-  codeGroups : CodeGroup[];
-  isLoading : boolean ; 
+interface Props {
+  readonly codeGroups: CodeGroup[];
+  readonly isLoading: boolean;
 }
 
-export default function CodeGroupList({ codeGroups , isLoading }: Props) {
+function CodeGroupList({ codeGroups, isLoading }: Props) {
   return (
-    <div className = {styles.centered}>
+    <div className={styles.centered}>
       <h2>코드그룹 목록</h2>
-      {isLoading && "로딩중 "}
-      {!isLoading && codeGroups &&  (
+      {isLoading && "로딩중..."}
+      {!isLoading && codeGroups && (
         <>
           <Link to="/codegroup/create">새로만들기</Link>
-          <table className = {styles.shop_table}>
+          <table className={styles.shop_table}>
             <thead>
               <tr>
                 <th align="center" className={styles.w_160}>코드그룹코드</th>
@@ -28,14 +28,14 @@ export default function CodeGroupList({ codeGroups , isLoading }: Props) {
               {!codeGroups.length && (
                 <tr>
                   <td colSpan={3}>
-                    List is Empty
+                    List is empty.
                   </td>
                 </tr>
               )}
               {!!codeGroups.length && codeGroups.map((codeGroup) => (
-                <tr key = {codeGroup.groupCode}>
-                  <td align ="center">{codeGroup.groupCode}</td>
-                  <td align = "left">
+                <tr key={codeGroup.groupCode}>
+                  <td align="center">{codeGroup.groupCode}</td>
+                  <td align="left">
                     <Link to={`/codegroup/read/${codeGroup.groupCode}`}>
                       {codeGroup.groupName}
                     </Link>
@@ -48,5 +48,7 @@ export default function CodeGroupList({ codeGroups , isLoading }: Props) {
         </>
       )}
     </div>
-  )
+  );
 }
+
+export default CodeGroupList;

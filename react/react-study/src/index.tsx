@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { MemoryRouter } from "react-router-dom";
+import reportWebVitals from './reportWebVitals';
+import { MemoryRouter as Router } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import rootReducer, { rootSaga } from "./modules";
 import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from "redux-saga";
-import { setAccessToken , checkMyInfo } from "./modules/auth";
-import client from "./lib/client";
 import Cookies from "js-cookie";
+import { setAccessToken, checkMyInfo } from "./modules/auth";
+import client from "./lib/client";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -19,30 +20,33 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(sagaMiddleware))
 );
 
-sagaMiddleware.run(rootSaga);
-
-function loadUser(){
+function loadUser() {
   try {
     const savedToken = Cookies.get("accessToken");
 
-    if(!savedToken) return ;
+    if (!savedToken) return;
+
     store.dispatch(setAccessToken(savedToken));
+
     client.defaults.headers.common.Authorization = `Bearer ${savedToken}`;
+
     store.dispatch(checkMyInfo());
-  } catch (error) {
-    
+  } catch (e) {
+    console.log(e);
   }
 }
 
-loadUser();
+sagaMiddleware.run(rootSaga);
 
+loadUser();
 
 ReactDOM.render(
   <Provider store={store}>
-    <MemoryRouter>
+    <Router>
       <App />
-    </MemoryRouter>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
 
+reportWebVitals();
