@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../../Shop.module.css";
 import { CodeGroup } from "../../App";
+import moment  from  "moment";
 
 interface Props {
   readonly codeGroups: CodeGroup[];
@@ -40,7 +41,7 @@ function CodeGroupList({ codeGroups, isLoading }: Props) {
                       {codeGroup.groupName}
                     </Link>
                   </td>
-                  <td align="center">{codeGroup.regDate}</td>
+                  <td align="center">{moment(codeGroup.regDate).format('YYYY-MM-DD')}</td>
                 </tr>
               ))}
             </tbody>

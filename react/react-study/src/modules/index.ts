@@ -6,10 +6,12 @@ import { CodeGroupState } from "../modules/codegroup";
 import { LoadingState } from "../modules/loading";
 import loading from "./loading";
 import codegroup, { codeGroupSaga } from "./codegroup";
+import codedetail , { CodeDetailState , codeDetailSaga } from "./codedetail";
 
 export interface RootState {
   auth: AuthState;
   codegroup: CodeGroupState;
+  codedetail : CodeDetailState;
   loading: LoadingState;
 }
 
@@ -17,12 +19,14 @@ const rootReducer = combineReducers({
   auth,
   loading,
   codegroup,
+  codedetail
 });
 
 export function* rootSaga() {
   yield all([
     authSaga(),
     codeGroupSaga(),
+    codeDetailSaga()
   ]);
 }
 
