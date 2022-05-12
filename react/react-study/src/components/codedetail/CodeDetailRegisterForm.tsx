@@ -9,7 +9,7 @@ interface Props {
 }
 
 function CodeDetailRegisterForm ({onRegister}: Props){
-  const [groupCode , setGroupCode] = useState("A01");
+  const [groupCode , setGroupCode] = useState("1");
   const [groupCodes , setGroupCodes] = useState<CodeValue[]>([]);
   const [codeValue , setCodeValue] = useState("");
   const [codeName , setCodeName] = useState("");
@@ -34,7 +34,6 @@ function CodeDetailRegisterForm ({onRegister}: Props){
   const getGroupCodeList = async () => {
     try {
       const response = await fetchGroupCodeList();
-      console.log(response.data);
       setGroupCodes(response.data);
     } catch (error) {
       throw error;
@@ -54,15 +53,15 @@ function CodeDetailRegisterForm ({onRegister}: Props){
             <tr>
               <td>그룹코드</td>
               <td>
-                {/* <select onChange = {handleChangeGroupCode} value={groupCode}>
+                <select onChange = {handleChangeGroupCode} value={groupCode}>
                   {
                     groupCodes.map((groupCode) => (
-                      <option value={groupCode.value} key={groupCode.value}>
+                      <option value={groupCode.value} key={groupCode.value} >
                         {groupCode.label}
                       </option>
                     ))
                   }
-                </select> */}
+                </select>
               </td>
             </tr>
             <tr>

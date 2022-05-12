@@ -6,6 +6,7 @@ import MainLayout from '../../layout/MainLayout';
 
 function CodeDetailReadPage (){
 
+
   const { groupCode , codeValue} : {groupCode : string , codeValue : string } = 
   useParams();
 

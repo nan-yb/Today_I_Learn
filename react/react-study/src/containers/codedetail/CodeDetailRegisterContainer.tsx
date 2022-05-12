@@ -11,6 +11,9 @@ function CodeDetailRegisterContainer (){
     try {
       const response = await api.writeCodeDetail(groupCode , codeValue , codeName);
       alert('등록이 완료되었습니다.');
+
+      console.log(response );
+      
       history.push(`/codedetail/read/${response.data.groupCode}/${response.data.codeValue}`);
 
     } catch (e : any) {

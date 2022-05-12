@@ -27,7 +27,7 @@ function CodeDetailModifyContainer ({groupCode , codeValue}: Props){
 
       alert('수정이 완료되었습니다.');
 
-      history.push(`/codedetail/read${groupCode}/${codeValue}`);
+      history.push(`/codedetail/read/${groupCode}/${codeValue}`);
     } catch (e : any)  {
       if(e.response.status === 400) {
         alert('잘못된 요청입니다.');

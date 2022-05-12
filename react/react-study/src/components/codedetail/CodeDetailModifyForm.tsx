@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CodeDetail, CodeValue } from '../../App';
-import { fetchCodeGroupList } from '../../lib/api';
+import {  fetchGroupCodeList } from '../../lib/api';
 import styles from "../../Shop.module.css";
 
 interface Props {
@@ -31,7 +31,7 @@ function CodeDetailModifyForm ({codeDetail , isLoading , onModify}: Props){
 
   const getGroupCodeList = async () => {
     try {
-      const response = await fetchCodeGroupList();
+      const response = await fetchGroupCodeList();
       setGroupCodes(response.data);
     } catch (error) {
       throw error;
@@ -74,6 +74,7 @@ function CodeDetailModifyForm ({codeDetail , isLoading , onModify}: Props){
                 <td><input type="text" value={codeValue} disabled /></td>
               </tr>
               <tr>
+                <td>코드이름</td>
                 <td><input type="text" value={codeName} onChange={handleChangeCodeName} /></td>
               </tr>
             </tbody>

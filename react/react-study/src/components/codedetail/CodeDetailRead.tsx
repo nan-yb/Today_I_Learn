@@ -63,6 +63,7 @@ function CodeDetailRead ({
                   </td>
                 </tr>
                 <tr>
+                  <td>코드이름</td>
                   <td>
                     <input type="text" value={codeDetail.codeName} readOnly />
                   </td>

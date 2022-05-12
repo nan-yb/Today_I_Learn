@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CodeDetail } from '../../App';
@@ -44,7 +45,7 @@ function CodeDetailList ({ codeDetails , isLoading} : Props){
                     </Link>
                   </td>
                   <td align="center">{codeDetail.sortSeq}</td>
-                  <td align="center">{codeDetail.regDate}</td>
+                  <td align="center">{moment(codeDetail.regDate).format('YYYY-MM-DD')}</td>
                 </tr>
               ))}
             </tbody>

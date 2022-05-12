@@ -11,6 +11,7 @@ import CodeDetailListPage from "./pages/codedetail/CodeDetailListPage";
 import CodeDetailRegisterPage from "./pages/codedetail/CodeDetailRegisterPage";
 import CodeDetailModifyPage from "./pages/codedetail/CodeDetailModifyPage";
 import CodeDetailReadPage from "./pages/codedetail/CodeDetailReadPage";
+import SignUpPage from './pages/auth/SignUpPage';
 
 
 
@@ -56,8 +57,12 @@ function App() {
   return (
     <>
       <Route component={HomePage} path="/" exact />
+      
       <Route component={SignInPage} path="/signin" exact />
+      <Route component={SignUpPage} path="/signup" exact />
+
       <Route component={AdminSetupPage} path="/member/setup" />
+      
       <Route component={CodeGroupListPage} path="/codegroup" exact />
       <Route component={CodeGroupRegisterPage} path="/codegroup/create" />
       <Route component={CodeGroupModifyPage} path="/codegroup/edit/:groupCode" />
@@ -67,8 +72,6 @@ function App() {
       <Route component={CodeDetailRegisterPage} path="/codedetail/create" />
       <Route component={CodeDetailModifyPage} path="/codedetail/edit/:groupCode/:codeValue" />
       <Route component={CodeDetailReadPage} path="/codedetail/read/:groupCode/:codeValue" />
-
-
     </>
   );
 }
