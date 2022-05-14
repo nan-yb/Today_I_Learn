@@ -28,7 +28,6 @@ function MenuBar({ isAuthorized, isAdmin }: Props) {
             {!isAuthorized && (
               <>
                 <td width="120"><Link to="/">홈</Link></td>
-                <td width="120"><Link to="/member/setup">회원가입</Link></td>
               </>
             )}
           </tr>
