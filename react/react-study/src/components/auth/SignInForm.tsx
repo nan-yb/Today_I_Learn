@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
 import styles from "../../Shop.module.css";
+import { Link } from "react-router-dom";
 
 interface Props {
   readonly onSignIn: (userId: string, password: string) => void;
@@ -53,10 +53,7 @@ function SignInForm({ onSignIn }: Props) {
           </tbody>
         </table>
       </form>
-
-      <p>
-        <Link to="/signup">회원가입</Link>
-      </p>
+      <p><Link to="/signup">회원가입</Link></p>
     </div>
   );
 }

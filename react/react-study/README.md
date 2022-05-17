@@ -1,9 +1,6 @@
-# 실전 SPA 개발 React with 타입스크립트 [FrontEnd]
+# yblog frontend
 
-[BackEnd]("https://github.com/nan-yb/react_spa")
+# npm
 
-- 2022-04-28
-  ~6장 : CRUD게시판
-
-- 2022-05-02
-  ~9장 : 파일게시판
+- craco : 절대경로 생성
+- node-sass : scss 적용

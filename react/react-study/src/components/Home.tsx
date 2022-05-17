@@ -1,11 +1,17 @@
 import React from "react";
-import styles from "../Shop.module.css";
+import okinawa from '@assets/main/okinawa.png'
 
 function Home() {
   return (
-    <div className={styles.centered}>
-      <h1>Image Shop에 오신 것을 환영합니다.</h1>
-      <p>{new Date().toString()}</p>
+    <div>
+      <div className="container mx-auto my-4 max-w-screen-xl">
+        <img
+          src={okinawa}
+          alt=""
+          className="mx-auto justify-center items-end pb-4 flex rounded-3xl "
+        />
+        {/* <TabUI prop={boardList} /> */}
+      </div>
     </div>
   );
 }
