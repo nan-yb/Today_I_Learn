@@ -13,8 +13,6 @@ import CodeDetailModifyPage from "./pages/codedetail/CodeDetailModifyPage";
 import CodeDetailReadPage from "./pages/codedetail/CodeDetailReadPage";
 import SignUpPage from './pages/auth/SignUpPage';
 
-
-
 export interface LoginInput {
   userId: string;
   password: string;
@@ -27,6 +25,13 @@ export interface AuthInfo {
 export interface MyInfo {
   userName: string;
   authList: AuthInfo[];
+}
+
+export interface ModalInfo { 
+  show: boolean;
+  writing : boolean;
+  login : boolean;
+  register : boolean;
 }
 
 export interface CodeGroup {

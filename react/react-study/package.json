@@ -19,9 +19,10 @@
     "@types/redux-actions": "^2.6.2",
     "axios": "^0.24.0",
     "craco-alias": "^3.0.1",
+    "css-loader": "^6.7.1",
     "js-cookie": "^3.0.1",
     "moment": "^2.29.3",
-    "node-sass": "^7.0.1",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-moment": "^1.1.1",
@@ -62,8 +63,6 @@
     ]
   },
   "devDependencies": {
-    "autoprefixer": "^9",
-    "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }

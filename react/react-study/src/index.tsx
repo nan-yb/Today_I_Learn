@@ -22,15 +22,13 @@ const store = createStore(
 
 function loadUser() {
   try {
-    const savedToken = Cookies.get("accessToken");
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    
+    store.dispatch(setAccessToken(token));
 
-    if (!savedToken) return;
 
-    store.dispatch(setAccessToken(savedToken));
-
-    client.defaults.headers.common.Authorization = `Bearer ${savedToken}`;
-
-    store.dispatch(checkMyInfo());
+    // store.dispatch(checkMyInfo());
   } catch (e) {
     console.log(e);
   }

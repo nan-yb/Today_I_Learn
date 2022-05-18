@@ -7,7 +7,7 @@ export const signIn = (userId: string, password: string) => client.post(`/users/
 export const signUp = (userId : string , userName : string , userPw : string , job : string) => client.post("/users" , {userId , userName , userPw , job});
 export const fetchJobCodeList = () => client.get('/codes/job');
 
-export const getMyInfo = () => client.get("/api/myinfo");
+export const getMyInfo = () => client.get("/user/token");
 
 export const fetchCodeGroup = (groupCode: string) => client.get(`/codegroups/${groupCode}`);
 export const fetchCodeGroupList = () => client.get("/codegroups");
