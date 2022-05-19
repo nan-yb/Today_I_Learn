@@ -2,7 +2,8 @@
 // import RegisterModal from "./Register";
 
 import "@styles/modal.scss"
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
+import reader from "@assets/icon/reader.png";
 // import {
 //   setLoginModalDirectRegister,
 //   setLoginModalClose,
@@ -19,7 +20,7 @@ const LoginModal = () => {
     password: "",
   });
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const onRegister = () => {
     // dispatch(setLoginModalDirectRegister());
@@ -90,7 +91,7 @@ const LoginModal = () => {
                       </div>
 
                       <div>
-                        <img src={require("@assets/icon/reader.png")} alt="reader" />
+                        <img src={reader} alt="reader" />
                       </div>
                     </main>
 

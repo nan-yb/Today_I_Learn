@@ -1,11 +1,12 @@
 import { createAction } from "redux-actions";
 import { createReducer } from "typesafe-actions";
-import { takeLatest, call, put } from "redux-saga/effects";
-import * as api from "../lib/api";
-import client from "../lib/client";
-import { AxiosResponse } from "axios";
-import { LoginInput, ModalInfo, MyInfo } from "../App";
-import Cookies from "js-cookie";
+// import { takeLatest, call, put } from "redux-saga/effects";
+// import * as api from "../lib/api";
+// import client from "../lib/client";
+// import { AxiosResponse } from "axios";
+import {  ModalInfo } from "../App";
+// import { LoginInput, ModalInfo, MyInfo } from "../App";
+// import Cookies from "js-cookie";
 
 const SET_LOGIN_MODAL_OPEN = "modal/SET_LOGIN_MODAL_OPEN";
 const SET_LOGIN_MODAL_DIRECT_LOGIN = "modal/SET_LOGIN_MODAL_DIRECT_LOGIN";
@@ -38,7 +39,6 @@ const initialState: ModalInfo = {
   login : false , 
   register : false ,
   writing: false
-
 };
 
 const modal = createReducer(

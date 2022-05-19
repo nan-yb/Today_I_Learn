@@ -9,9 +9,10 @@ import { Provider } from "react-redux";
 import rootReducer, { rootSaga } from "./modules";
 import { composeWithDevTools } from "redux-devtools-extension";
 import createSagaMiddleware from "redux-saga";
-import Cookies from "js-cookie";
-import { setAccessToken, checkMyInfo } from "./modules/auth";
-import client from "./lib/client";
+// import Cookies from "js-cookie";
+// import { setAccessToken , checkMyInfo } from "./modules/auth";
+import { setAccessToken  } from "./modules/auth";
+// import client from "./lib/client";
 
 const sagaMiddleware = createSagaMiddleware();
 

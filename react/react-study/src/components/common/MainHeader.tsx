@@ -1,15 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {   ModalInfo, MyInfo } from "../../App";
-import LoginModal from "./LoginModal";
+import { MyInfo } from "../../App";
 import "@styles/gnb.scss"
 import { useDispatch } from "react-redux";
 import { setLoginModalOpen } from "../../modules/modal";
 
-
 interface Props {
   readonly myInfo: MyInfo | null;
-  readonly modal  : ModalInfo | null;
   readonly isAuthorized: boolean;
   readonly onLogout: () => void;
 }
@@ -19,7 +16,8 @@ const fontStyle = {
   fontFamily : 'logoFont'
 }
 
-function MainHeader({ myInfo, modal, isAuthorized , onLogout }: Props) {
+
+function MainHeader({ myInfo , isAuthorized , onLogout }: Props) {
 
     const dispatch = useDispatch();
 
@@ -101,14 +99,14 @@ function MainHeader({ myInfo, modal, isAuthorized , onLogout }: Props) {
                 </svg>
                 {!myInfo ? "로그인" : "로그아웃"}
               </button>
-
+              
             </div>
-            {/* <LoginModal/> */}
           </nav>
         </div>
         <hr />
       </div>
     );
   }
+
 
 export default MainHeader;

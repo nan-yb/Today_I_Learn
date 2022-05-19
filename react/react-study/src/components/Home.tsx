@@ -1,7 +1,5 @@
 import React from "react";
 import okinawa from '@assets/main/okinawa.png';
-import { useSelector, useDispatch, shallowEqual } from "react-redux";
-import { RootState } from "src/modules";
 
 function Home() {
   return (
