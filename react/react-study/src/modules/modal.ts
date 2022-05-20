@@ -33,6 +33,9 @@ export const setLoginModalClose = createAction(SET_LOGIN_MODAL_CLOSE);
 //   yield takeLatest(CHECK_MY_INFO, checkMyInfoSaga);
 // }
 
+export interface ModalState {
+  modal : ModalInfo;
+}
 
 const initialState: ModalInfo = {
   show: false,
@@ -50,13 +53,11 @@ const modal = createReducer(
     }),
     [SET_LOGIN_MODAL_DIRECT_LOGIN]: (state) => ({
       ...state,
-      show: true , 
-      directLogin : true
+      login : true
     }),
     [SET_LOGIN_MODAL_DIRECT_REGISTER]: (state) => ({
       ...state,
-      show: true , 
-      directRegister : true
+      register : true
     }),
     [SET_LOGIN_MODAL_CLOSE]: (state) => ({
       ...state,

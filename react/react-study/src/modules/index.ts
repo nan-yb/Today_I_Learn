@@ -7,19 +7,22 @@ import { LoadingState } from "../modules/loading";
 import loading from "./loading";
 import codegroup, { codeGroupSaga } from "./codegroup";
 import codedetail , { CodeDetailState , codeDetailSaga } from "./codedetail";
+import modal , { ModalState } from "./modal";
 
 export interface RootState {
   auth: AuthState;
   codegroup: CodeGroupState;
   codedetail : CodeDetailState;
   loading: LoadingState;
+  modal : ModalState;
 }
 
 const rootReducer = combineReducers({
   auth,
   loading,
   codegroup,
-  codedetail 
+  codedetail  ,
+  modal
 });
 
 export function* rootSaga() {

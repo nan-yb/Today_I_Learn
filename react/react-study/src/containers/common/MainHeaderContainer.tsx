@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect,  useDispatch  } from "react-redux";
 import MainHeader from "../../components/common/MainHeader";
 import { getAuthorized } from "../../modules/selector";
 import { MyInfo } from "../../App";
 import { RootState } from "../../modules";
 import { setAccessToken, setMyInfo } from "../../modules/auth";
-// import client from "../../lib/client";
-// import Cookies from "js-cookie";
-// import { setLoginModalOpen } from "../../modules/modal";
+import { setLoginModaldirectLogin, setLoginModalOpen } from "../../modules/modal";
 
 interface Props {
   readonly isAuthorized: boolean;
@@ -15,20 +13,28 @@ interface Props {
 }
 
 const MainHeaderContainer = ({ isAuthorized, myInfo }: Props) => {
+
   const dispatch = useDispatch();
 
+  const onLogin = () => {
+    dispatch(setLoginModalOpen());
+    dispatch(setLoginModaldirectLogin());
+  }
+  
   const onLogout = () => {
-    // delete client.defaults.headers.common.Authorization;
-    // Cookies.remove("accessToken");
-
     dispatch(setAccessToken(""));
     dispatch(setMyInfo(null));
   };
+
+  useEffect(() => {
+    
+  }, [dispatch])
 
   return (
     <MainHeader
       myInfo={myInfo}
       isAuthorized={isAuthorized}
+      onLogin={onLogin}
       onLogout={onLogout}
     />
   );

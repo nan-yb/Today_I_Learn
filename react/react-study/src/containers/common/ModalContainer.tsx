@@ -3,6 +3,7 @@ import RegisterModal from "@components/common/RegisterModal";
 
 import { useSelector } from "react-redux";
 import { ModalInfo } from "src/App";
+import { useEffect } from "react";
 
 // interface Props {
 // }
@@ -18,6 +19,7 @@ const ModalContainer = () => {
 
   if(!modal) return null;
   if(!modal.show) return null;
+
 
   return (
     <>

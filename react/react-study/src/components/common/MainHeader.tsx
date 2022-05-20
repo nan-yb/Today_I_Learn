@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { MyInfo } from "../../App";
 import "@styles/gnb.scss"
 import { useDispatch } from "react-redux";
-import { setLoginModalOpen } from "../../modules/modal";
+import { setLoginModaldirectLogin, setLoginModalOpen } from "../../modules/modal";
 
 interface Props {
   readonly myInfo: MyInfo | null;
   readonly isAuthorized: boolean;
+  readonly onLogin : () => void;
   readonly onLogout: () => void;
 }
 
@@ -17,15 +18,7 @@ const fontStyle = {
 }
 
 
-function MainHeader({ myInfo , isAuthorized , onLogout }: Props) {
-
-    const dispatch = useDispatch();
-
-    const onLogin = () => {
-      dispatch(setLoginModalOpen());
-      return; 
-    }
-  
+function MainHeader({ myInfo , isAuthorized , onLogin ,  onLogout }: Props) {
     return (
       <div>
         <div className='navContainer'>
@@ -80,7 +73,7 @@ function MainHeader({ myInfo , isAuthorized , onLogout }: Props) {
               </Link>
 
               <button
-                onClick={myInfo ? onLogin : onLogout}
+                onClick={onLogin}
                 className="hover:bg-light-blue-200 hover:text-light-blue-800 group flex items-center rounded-md bg-light-blue-100 text-light-blue-600 text-sm font-medium px-2 py-2"
               >
                 <svg
