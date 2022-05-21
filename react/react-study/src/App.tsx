@@ -29,7 +29,6 @@ export interface MyInfo {
 
 export interface ModalInfo { 
   show: boolean;
-  writing : boolean;
   login : boolean;
   register : boolean;
 }

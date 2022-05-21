@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { connect,  useDispatch  } from "react-redux";
+import { connect,  useDispatch, useSelector  } from "react-redux";
 import MainHeader from "../../components/common/MainHeader";
 import { getAuthorized } from "../../modules/selector";
 import { MyInfo } from "../../App";
 import { RootState } from "../../modules";
 import { setAccessToken, setMyInfo } from "../../modules/auth";
-import { setLoginModaldirectLogin, setLoginModalOpen } from "../../modules/modal";
+import { setLoginModalDirectLogin } from "../../modules/modal";
+import LoginModal from "@components/common/LoginModal";
+import RegisterModal from "@components/common/RegisterModal";
 
 interface Props {
   readonly isAuthorized: boolean;
@@ -17,8 +18,7 @@ const MainHeaderContainer = ({ isAuthorized, myInfo }: Props) => {
   const dispatch = useDispatch();
 
   const onLogin = () => {
-    dispatch(setLoginModalOpen());
-    dispatch(setLoginModaldirectLogin());
+    dispatch(setLoginModalDirectLogin());
   }
   
   const onLogout = () => {
@@ -26,17 +26,32 @@ const MainHeaderContainer = ({ isAuthorized, myInfo }: Props) => {
     dispatch(setMyInfo(null));
   };
 
-  useEffect(() => {
-    
-  }, [dispatch])
+  const {modal } = useSelector(({ modal }: RootState) => ({
+    modal :  modal.modalInfo,
+  }));
+
+  console.log(modal)
+
+
 
   return (
-    <MainHeader
-      myInfo={myInfo}
-      isAuthorized={isAuthorized}
-      onLogin={onLogin}
-      onLogout={onLogout}
-    />
+    <>
+      <MainHeader
+        myInfo={myInfo}
+        isAuthorized={isAuthorized}
+        onLogin={onLogin}
+        onLogout={onLogout}
+      />
+
+      { modal && modal.login && modal.show && (
+        <LoginModal /> 
+      )}
+
+      { modal && modal.register && modal.show && (
+        <RegisterModal /> 
+      )}
+
+    </>
   );
 };
 

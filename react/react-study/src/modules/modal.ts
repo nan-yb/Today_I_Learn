@@ -8,13 +8,11 @@ import {  ModalInfo } from "../App";
 // import { LoginInput, ModalInfo, MyInfo } from "../App";
 // import Cookies from "js-cookie";
 
-const SET_LOGIN_MODAL_OPEN = "modal/SET_LOGIN_MODAL_OPEN";
 const SET_LOGIN_MODAL_DIRECT_LOGIN = "modal/SET_LOGIN_MODAL_DIRECT_LOGIN";
 const SET_LOGIN_MODAL_DIRECT_REGISTER = "modal/SET_LOGIN_MODAL_DIRECT_REGISTER";
 const SET_LOGIN_MODAL_CLOSE = "modal/SET_LOGIN_MODAL_CLOSE";
 
-export const setLoginModalOpen = createAction(SET_LOGIN_MODAL_OPEN);
-export const setLoginModaldirectLogin = createAction(SET_LOGIN_MODAL_DIRECT_LOGIN);
+export const setLoginModalDirectLogin = createAction(SET_LOGIN_MODAL_DIRECT_LOGIN);
 export const setLoginModalDirectRegister = createAction(SET_LOGIN_MODAL_DIRECT_REGISTER);
 export const setLoginModalClose = createAction(SET_LOGIN_MODAL_CLOSE);
 
@@ -34,34 +32,39 @@ export const setLoginModalClose = createAction(SET_LOGIN_MODAL_CLOSE);
 // }
 
 export interface ModalState {
-  modal : ModalInfo;
+  modalInfo : ModalInfo | null;
 }
 
-const initialState: ModalInfo = {
-  show: false,
-  login : false , 
-  register : false ,
-  writing: false
+const initialState: ModalState = {
+  modalInfo : null
 };
 
 const modal = createReducer(
   initialState,
   {
-    [SET_LOGIN_MODAL_OPEN]: (state) => ({
-      ...state,
-      show: true 
-    }),
     [SET_LOGIN_MODAL_DIRECT_LOGIN]: (state) => ({
       ...state,
-      login : true
+      modalInfo : {
+        show: true,
+        login : true,
+        register : false,
+      }
     }),
     [SET_LOGIN_MODAL_DIRECT_REGISTER]: (state) => ({
       ...state,
-      register : true
+      modalInfo : {
+        show: true,
+        login : false,
+        register : true,
+      }
     }),
     [SET_LOGIN_MODAL_CLOSE]: (state) => ({
       ...state,
-      show: false  
+      modalInfo : {
+        show: false,
+        login : false,
+        register : false,
+      }
     }),
   },
 );

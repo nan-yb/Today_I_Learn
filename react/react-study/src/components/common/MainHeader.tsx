@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MyInfo } from "../../App";
 import "@styles/gnb.scss"
-import { useDispatch } from "react-redux";
-import { setLoginModaldirectLogin, setLoginModalOpen } from "../../modules/modal";
 
 interface Props {
   readonly myInfo: MyInfo | null;

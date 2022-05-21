@@ -11,6 +11,8 @@ import reader from "@assets/icon/reader.png";
 // import { setUser } from "../../modules/common";
 // import axios from "../../api";
 import React, { useState } from "react";
+import { setLoginModalClose, setLoginModalDirectRegister } from "../../modules/modal";
+import { useDispatch } from "react-redux";
 
 
 const LoginModal = () => {
@@ -20,14 +22,14 @@ const LoginModal = () => {
     password: "",
   });
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const onRegister = () => {
-    // dispatch(setLoginModalDirectRegister());
+    dispatch(setLoginModalDirectRegister());
   };
 
-  const onClickLoginButton = () => {
-    // dispatch(setLoginModalClose());
+  const onClickCloseButton = () => {
+    dispatch(setLoginModalClose());
   };
 
   const onChange = (e : any) => {
@@ -97,7 +99,7 @@ const LoginModal = () => {
 
                     <main className="flex-auto bg-white space-y-7 p-2">
                       <header className="py-5 px-5 my-4 flex flex-col items-end justify-items-end">
-                        <button onClick={onClickLoginButton} className="closeBtn">
+                        <button onClick={onClickCloseButton} className="closeBtn">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6"

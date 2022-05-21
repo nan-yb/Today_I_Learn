@@ -1,13 +1,11 @@
-// import { useDispatch } from "react-redux";
-// import axios from "../../api";
 import "@styles/modal.scss"
 import { useState, useEffect } from "react";
-// import { setLoginModalClose } from "../../modules/modal";
 
 // import { Listbox, Transition } from "@headlessui/react";
 // import { CheckIcon, SelectorIcon } from "@heroicons/react/solid";
 import reader from "@assets/icon/reader.png";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setLoginModalClose } from "../../modules/modal";
 
 const RegisterModal = () => {
   // const [totalCompany, setTotalCompany] = useState([]);
@@ -18,11 +16,12 @@ const RegisterModal = () => {
     company: "",
   });
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const onClickLoginButton = () => {
-    // dispatch(setLoginModalClose());
+  const onClickCloseButton = () => {
+    dispatch(setLoginModalClose());
   };
+
 
   const fetchHotels = async () => {
     try {
@@ -110,7 +109,7 @@ const RegisterModal = () => {
 
               <main className="flex-auto bg-white space-y-7 p-2">
                 <header className="py-5 px-5 my-4 flex flex-col items-end justify-items-end">
-                  <button onClick={onClickLoginButton} className="closeBtn">
+                  <button onClick={onClickCloseButton} className="closeBtn">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6"
