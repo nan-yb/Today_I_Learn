@@ -27,6 +27,12 @@
 - [Git 커밋메시지](https://xtring-dev.tistory.com/entry/Git-%EA%B7%9C%EC%B9%99%EC%A0%81%EC%9D%B8-Commit-%EB%A9%94%EC%84%B8%EC%A7%80%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%8C%80-%ED%98%91%EC%97%85%ED%95%98%EA%B8%B0-%F0%9F%91%BE)
 
 - [MarkDown 파일 작성](https://github.com/nan-yb/Today_I_Learn/blob/main/common/2021-03-13-markdown.md)
+- [용어정리]
+- [MSA]
+
+### javascript
+
+- [Javascript 메소드 정리]
 
 ### Java
 
@@ -67,3 +73,7 @@
   - [13. BFS](https://github.com/nan-yb/Today_I_Learn/blob/main/algorithm/2021-05-05-bfs.md)
   - [14. DFS](https://github.com/nan-yb/Today_I_Learn/blob/main/algorithm/2021-05-05-dfs.md)
   - [15. 그리디](https://github.com/nan-yb/Today_I_Learn/blob/main/algorithm/2021-05-05-greedy.md)
+
+[javascript 메소드 정리]: https://github.com/nan-yb/Today_I_Learn/blob/main/js&ts/javascript_Array_Method.md
+[용어정리]: https://github.com/nan-yb/Today_I_Learn/blob/main/common/용어정리.md
+[msa]: https://github.com/nan-yb/Today_I_Learn/blob/main/common/MSA_Architecture.md
